@@ -13,6 +13,7 @@ public class Usuarios {
         this.correo = correo;
         this.numeroTelefonico = numeroTelefonico;
         this.direccion = direccion;
+        //jesus
     }
 
     // Getters y setters
