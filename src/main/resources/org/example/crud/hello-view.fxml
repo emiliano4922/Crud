@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.crud.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<AnchorPane prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.crud.Crud">
+    <children>
+        <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <content>
+                <VBox spacing="10">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10"/>
+                    </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+                    <!-- Tabla de usuarios -->
+                    <TableView fx:id="tablaUsuarios" prefHeight="300" prefWidth="680">
+                        <columns>
+                            <TableColumn fx:id="colId" prefWidth="60" text="ID"/>
+                            <TableColumn fx:id="colNombre" prefWidth="150" text="Nombre"/>
+                            <TableColumn fx:id="colCorreo" prefWidth="160" text="Correo"/>
+                            <TableColumn fx:id="colTelefono" prefWidth="130" text="Teléfono"/>
+                            <TableColumn fx:id="colDireccion" prefWidth="180" text="Dirección"/>
+                        </columns>
+                    </TableView>
+
+                    <!-- Campos de entrada -->
+                    <HBox spacing="10">
+                        <TextField fx:id="idField" prefWidth="60" promptText="ID"/>
+                        <TextField fx:id="nombreField" prefWidth="150" promptText="Nombre"/>
+                        <TextField fx:id="correoField" prefWidth="160" promptText="Correo"/>
+                        <TextField fx:id="telefonoField" prefWidth="130" promptText="Teléfono"/>
+                        <TextField fx:id="direccionField" prefWidth="180" promptText="Dirección"/>
+                    </HBox>
+
+                    <!-- Botones de CRUD y orden -->
+                    <HBox spacing="10">
+                        <Button onAction="#handleAgregarUsuario" text="Agregar"/>
+                        <Button onAction="#handleEditarUsuario" text="Editar"/>
+                        <Button onAction="#handleEliminarUsuario" text="Eliminar"/>
+                        <Button onAction="#handleSubirUsuario" text="↑ Subir"/>
+                        <Button onAction="#handleBajarUsuario" text="↓ Bajar"/>
+                    </HBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>
